@@ -1,11 +1,11 @@
-h1 Listing contacts
+h1 Cloudcontacts
 
 table
   thead
     tr
       th First name
       th Last name
-      th Street
+      th Address
       th City
       th State/Prov
       th Postal Code
@@ -22,7 +22,9 @@ table
         td
           div = contact.last_name
         td
-          div = contact.street_1
+          - street = contact.street_1
+          - street += ", #{contact.street_2}" unless contact.street_2.blank?
+          div = street
         td
           div = contact.city
         td
@@ -32,12 +34,14 @@ table
         td
           div = contact.country
         td
-          div = link_to 'Show', contact
+          div = link_to 'Show', contact, class: 'button'
         td
-          div = link_to 'Edit', edit_contact_path(contact)
+          div = link_to 'Edit', edit_contact_path(contact), class: 'button'
         td
-          div = link_to 'Destroy', contact, data: { confirm: 'Are you sure?' }, method: :delete
+          div = link_to 'Destroy', contact, data:   { confirm: 'Are you sure?' },
+                                            method: :delete,
+                                            class:  'button'
 
 br
 
-= link_to 'New Contact', new_contact_path
+= link_to 'New Contact', new_contact_path, class: 'button button-primary'

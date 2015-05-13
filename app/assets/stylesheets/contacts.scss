@@ -10,6 +10,11 @@ tbody {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        a.button {
+          margin-bottom: 0;
+          padding: 0 10px;
+        }
       }
     }
   }

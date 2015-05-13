@@ -25,6 +25,5 @@ p
   strong Country:
   = @contact.country
 
-= link_to 'Edit', edit_contact_path(@contact)
-'|
-= link_to 'Back', contacts_path
+= link_to 'Edit', edit_contact_path(@contact), class: 'button'
+= link_to 'Back', contacts_path, class: 'button'
