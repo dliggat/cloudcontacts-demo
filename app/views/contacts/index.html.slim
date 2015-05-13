@@ -5,6 +5,10 @@ table
     tr
       th First name
       th Last name
+      th Street
+      th City
+      th State/Prov
+      th Country
       th
       th
       th
@@ -14,6 +18,10 @@ table
       tr
         td = contact.first_name
         td = contact.last_name
+        td = contact.street_1
+        td = contact.city
+        td = contact.subnational_jurisdiction
+        td = contact.country
         td = link_to 'Show', contact
         td = link_to 'Edit', edit_contact_path(contact)
         td = link_to 'Destroy', contact, data: {:confirm => 'Are you sure?'}, :method => :delete

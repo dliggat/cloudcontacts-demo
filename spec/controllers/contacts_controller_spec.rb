@@ -24,7 +24,7 @@ RSpec.describe ContactsController, :type => :controller do
   # Contact. As you add validations to Contact, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { first_name: 'Walter', last_name: 'White' }
   }
 
   let(:invalid_attributes) {
@@ -103,14 +103,22 @@ RSpec.describe ContactsController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { street_1:                 '308 Negra Arroyo Lane',
+          street_2:                 nil,
+          city:                     'Albuquerque',
+          subnational_jurisdiction: 'NM',
+          country:                  'USA' }
       }
 
       it "updates the requested contact" do
         contact = Contact.create! valid_attributes
         put :update, {:id => contact.to_param, :contact => new_attributes}, valid_session
         contact.reload
-        skip("Add assertions for updated state")
+        expect(contact.street_1).to                 eq('308 Negra Arroyo Lane')
+        expect(contact.street_2).to                 eq(nil)
+        expect(contact.city).to                     eq('Albuquerque')
+        expect(contact.subnational_jurisdiction).to eq('NM')
+        expect(contact.country).to                  eq('USA')
       end
 
       it "assigns the requested contact as @contact" do

@@ -6,6 +6,21 @@ p
 p
   strong Last name:
   = @contact.last_name
+p
+  strong Street Address:
+  = @contact.street_1
+p
+  strong Street Address (cont'd):
+  = @contact.street_2
+p
+  strong City:
+  = @contact.city
+p
+  strong State/Prov:
+  = @contact.subnational_jurisdiction
+p
+  strong Country:
+  = @contact.country
 
 = link_to 'Edit', edit_contact_path(@contact)
 '|
