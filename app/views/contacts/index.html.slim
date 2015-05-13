@@ -8,6 +8,7 @@ table
       th Street
       th City
       th State/Prov
+      th Postal Code
       th Country
       th
       th
@@ -21,6 +22,7 @@ table
         td = contact.street_1
         td = contact.city
         td = contact.subnational_jurisdiction
+        td = contact.postal_code
         td = contact.country
         td = link_to 'Show', contact
         td = link_to 'Edit', edit_contact_path(contact)

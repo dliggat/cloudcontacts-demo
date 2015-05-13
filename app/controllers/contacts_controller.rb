@@ -59,6 +59,7 @@ class ContactsController < ApplicationController
                                       :street_2,
                                       :city,
                                       :subnational_jurisdiction,
+                                      :postal_code,
                                       :country)
     end
 end
