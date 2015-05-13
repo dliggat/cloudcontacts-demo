@@ -14,3 +14,12 @@ Question 1 asks for a FizzBuzz implementation. This has been implemented as a `r
 ### Executing the Program:
     bundle exec rake fizz_buzz
 
+
+## Question 2
+Question 2 asks for a function that sorts the keys in a hash by the length of the key, as a string. The function can be found at `./app/lib/question_two.rb`.
+
+### Testing:
+The provided example is amongst the test suite.
+
+    bundle exec rspec -b -c spec/lib/question_two_spec.rb
+
