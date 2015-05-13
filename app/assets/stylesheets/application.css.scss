@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+// Import styles from bower.
+ @import "skeleton-css/css/normalize";
+ @import "skeleton-css/css/skeleton";
