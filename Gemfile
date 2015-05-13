@@ -13,6 +13,8 @@ group :development, :test do
   gem 'byebug'
   gem 'spring'
   gem 'fuubar'
+  gem 'guard'
+  gem 'guard-rspec'
   gem 'rspec'
   gem 'rspec-its'
   gem 'rspec-rails', '~> 3.1'
