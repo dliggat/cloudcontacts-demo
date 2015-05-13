@@ -17,16 +17,26 @@ table
   tbody
     - @contacts.each do |contact|
       tr
-        td = contact.first_name
-        td = contact.last_name
-        td = contact.street_1
-        td = contact.city
-        td = contact.subnational_jurisdiction
-        td = contact.postal_code
-        td = contact.country
-        td = link_to 'Show', contact
-        td = link_to 'Edit', edit_contact_path(contact)
-        td = link_to 'Destroy', contact, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          div = contact.first_name
+        td
+          div = contact.last_name
+        td
+          div = contact.street_1
+        td
+          div = contact.city
+        td
+          div = contact.subnational_jurisdiction
+        td
+          div = contact.postal_code
+        td
+          div = contact.country
+        td
+          div = link_to 'Show', contact
+        td
+          div = link_to 'Edit', edit_contact_path(contact)
+        td
+          div = link_to 'Destroy', contact, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
