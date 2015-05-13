@@ -1,5 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe Contact, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Contact, type: :model do
+  let (:model) { described_class.new }
+
+  it 'should validate first and last name presence' do
+    expect(model.valid?).to eq(false)
+    model.first_name = 'Joe'
+    expect(model.valid?).to eq(false)
+    model.last_name = 'Bloggs'
+    expect(model.valid?).to eq(true)
+  end
+
 end
