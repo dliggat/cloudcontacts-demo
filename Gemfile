@@ -10,6 +10,9 @@ gem 'bower-rails'
 # gem 'therubyracer', platforms: :ruby
 
 group :development, :test do
+  gem 'faker'
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'byebug'
   gem 'spring'
   gem 'fuubar'
