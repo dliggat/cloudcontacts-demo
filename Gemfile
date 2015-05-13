@@ -11,6 +11,7 @@ gem 'coffee-rails', '~> 4.1.0'
 group :development, :test do
   gem 'byebug'
   gem 'spring'
+  gem 'fuubar'
   gem 'rspec'
   gem 'rspec-its'
   gem 'rspec-rails', '~> 3.1'
