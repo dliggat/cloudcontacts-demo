@@ -26,13 +26,13 @@ table
           - street += ", #{contact.street_2}" unless contact.street_2.blank?
           div = street
         td
-          div = contact.city
+          .small = contact.city
         td
-          div = contact.subnational_jurisdiction
+          .small = contact.subnational_jurisdiction
         td
-          div = contact.postal_code
+          .small = contact.postal_code
         td
-          div = contact.country
+          .small = contact.country
         td
           div = link_to 'Edit', edit_contact_path(contact), class: 'button'
         td

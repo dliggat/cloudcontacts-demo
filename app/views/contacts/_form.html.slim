@@ -1,4 +1,6 @@
 = form_for @contact do |f|
+  - readonly = %w[edit new].include?(action_name) ? false : true
+
   - if @contact.errors.any?
     #error_explanation
       h2 = "#{pluralize(@contact.errors.count, "error")} prohibited this contact from being saved:"
@@ -6,43 +8,47 @@
         - @contact.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :first_name
-    = f.text_field :first_name
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
-  .field
+  .row
+    .three.columns
+      = f.label :first_name
+      = f.text_field :first_name, disabled: readonly
+    .three.columns
+      = f.label :last_name
+      = f.text_field :last_name, disabled: readonly
+  .row
     = f.label :street_1, 'Street Address'
-    = f.text_field :street_1
-  .field
-    = f.label :street_2, "Street Address (cont'd)"
-    = f.text_field :street_2
-  .field
-    = f.label :city
-    = f.text_field :city
-  .field
-    = f.label :subnational_jurisdiction, 'State/Province'
-    = f.text_field :subnational_jurisdiction
-  .field
-    = f.label :postal_code
-    = f.text_field :postal_code
-  .field
-    = f.label :country
-    = f.text_field :country
+    = f.text_field :street_1, disabled: readonly
+    .field
+    = f.text_field :street_2, disabled: readonly
+  .row
+    .three.columns
+      = f.label :city
+      = f.text_field :city, disabled: readonly
+    .three.columns
+      = f.label :subnational_jurisdiction, 'State/Province'
+      = f.text_field :subnational_jurisdiction, disabled: readonly
+    .three.columns
+      = f.label :postal_code
+      = f.text_field :postal_code, disabled: readonly
+  .row
+    .three.columns
+      = f.label :country
+      = f.text_field :country, disabled: readonly
 
   h2 Phone Numbers
   = f.fields_for :phones do |f_phone|
     .row
       .expandable_fields
-        .two.columns
+        .three.columns
           = f_phone.label :number, :number
-          = f_phone.text_field :number
-        .two.columns
+          = f_phone.text_field :number, disabled: readonly
+        .three.columns
           = f_phone.label :label, :label
-          = f_phone.text_field :label
-        .two.columns
-          = f_phone.hidden_field :_destroy
-          = link_to 'remove', 'javascript:void(0);', class: 'remove_link'
+          = f_phone.text_field :label, disabled: readonly
+        - unless readonly
+          .three.columns
+            = f_phone.hidden_field :_destroy
+            = link_to 'remove', 'javascript:void(0);', class: 'remove_link'
 
-  .actions = f.submit class: 'button-primary'
+  - unless readonly
+    .actions = f.submit class: 'button-primary'
