@@ -60,6 +60,7 @@ class ContactsController < ApplicationController
                                       :city,
                                       :subnational_jurisdiction,
                                       :postal_code,
-                                      :country)
+                                      :country,
+                                      phones_attributes: [:id, :number, :label, :_destroy])
     end
 end

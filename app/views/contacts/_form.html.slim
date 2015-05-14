@@ -13,16 +13,16 @@
     = f.label :last_name
     = f.text_field :last_name
   .field
-    = f.label 'Street Address'
+    = f.label :street_1, 'Street Address'
     = f.text_field :street_1
   .field
-    = f.label "Street Address (cont'd)"
+    = f.label :street_2, "Street Address (cont'd)"
     = f.text_field :street_2
   .field
     = f.label :city
     = f.text_field :city
   .field
-    = f.label 'State/Province'
+    = f.label :subnational_jurisdiction, 'State/Province'
     = f.text_field :subnational_jurisdiction
   .field
     = f.label :postal_code
@@ -30,4 +30,19 @@
   .field
     = f.label :country
     = f.text_field :country
+
+  h2 Phone Numbers
+  = f.fields_for :phones do |f_phone|
+    .row
+      .expandable_fields
+        .two.columns
+          = f_phone.label :number, :number
+          = f_phone.text_field :number
+        .two.columns
+          = f_phone.label :label, :label
+          = f_phone.text_field :label
+        .two.columns
+          = f_phone.hidden_field :_destroy
+          = link_to 'remove', 'javascript:void(0);', class: 'remove_link'
+
   .actions = f.submit class: 'button-primary'

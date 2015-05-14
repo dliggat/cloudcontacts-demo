@@ -4,4 +4,6 @@ class Contact < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :last_name,  presence: true
+
+  accepts_nested_attributes_for :phones, allow_destroy: true
 end
