@@ -11,4 +11,15 @@ describe Contact, type: :model do
     expect(model.valid?).to eq(true)
   end
 
+  it 'should cascade deletions' do
+    contact = FactoryGirl.create :contact_with_associations
+    expect(contact.phones.count).to eq(3)
+    expect(Phone.count).to eq(3)
+    expect(contact.emails.count).to eq(2)
+    expect(Email.count).to eq(2)
+    contact.destroy
+    expect(Phone.count).to eq(0)
+    expect(Email.count).to eq(0)
+  end
+
 end
