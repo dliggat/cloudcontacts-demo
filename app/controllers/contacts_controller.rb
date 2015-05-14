@@ -51,6 +51,11 @@ class ContactsController < ApplicationController
       @contact = Contact.find(params[:id])
     end
 
+    def readonly
+       %w[index show].include?(action_name) ? true : false
+    end
+    helper_method :readonly
+
     # Only allow a trusted parameter "white list" through.
     def contact_params
       params.require(:contact).permit(:first_name,
@@ -61,6 +66,7 @@ class ContactsController < ApplicationController
                                       :subnational_jurisdiction,
                                       :postal_code,
                                       :country,
-                                      phones_attributes: [:id, :number, :label, :_destroy])
+                                      phones_attributes: [:id, :number, :label, :_destroy],
+                                      emails_attributes: [:id, :address, :label, :_destroy])
     end
 end
