@@ -17,5 +17,10 @@ tbody {
         }
       }
     }
+    &:hover {
+      background-color: #E0FFFF;
+      cursor: pointer;
+      cursor: hand;
+    }
   }
 }
