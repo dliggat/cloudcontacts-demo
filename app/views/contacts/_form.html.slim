@@ -1,5 +1,5 @@
 = form_for @contact do |f|
-  - readonly = %w[edit new].include?(action_name) ? false : true
+  - readonly = %w[index show].include?(action_name) ? true : false
 
   - if @contact.errors.any?
     #error_explanation
@@ -35,7 +35,7 @@
       = f.label :country
       = f.text_field :country, disabled: readonly
 
-  h2 Phone Numbers
+  h3 Phone Numbers
   = f.fields_for :phones do |f_phone|
     .row
       .expandable_fields
@@ -46,7 +46,7 @@
           = f_phone.label :label, :label
           = f_phone.text_field :label, disabled: readonly
         - unless readonly
-          .three.columns
+          .three.columns.link-container
             = f_phone.hidden_field :_destroy
             = link_to 'remove', 'javascript:void(0);', class: 'remove_link'
 
